@@ -1,10 +1,15 @@
 import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
-  username: String,
-  password: String,
+  _id: String,
   email: String,
-  createAt: String,
+  token: String,
+  username: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  password: String,
 });
 
 // module.exports = model("User", userSchema);
