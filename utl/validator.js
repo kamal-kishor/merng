@@ -24,7 +24,8 @@ const validateRegisterInput = (username, password, confirmPassword, email) => {
 };
 
 const validateLoginInput = (email, password) => {
-  console.log("User Emailis: ", email, "& Password is", password);
+  const errors = {};
+
   if (email === "") {
     errors.email = "email not be empty";
   } else {

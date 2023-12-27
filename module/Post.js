@@ -4,18 +4,27 @@ const postSchema = new Schema({
   _id: String,
   body: String,
   username: String,
-  createdAt: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
   comments: [
     {
       body: String,
       username: String,
-      createdAt: String,
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
   likes: [
     {
       username: String,
-      createdAt: String,
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
   user: {
