@@ -34,16 +34,16 @@ export const like_resolver = {
         throw new Error("Error on the Like Post Resolver: " + error.message);
       }
     },
-
-    Subscription: {
-      // newPost: {
-      //   subscribe: (parent, args) => args.pubsub.asyncIterator("NEW POST"),
-      // },
-      newPost: {
-        subscribe: async (parent, args, { pubsub }) => {
-          return pubsub.asyncIterator("NEW_POST");
-        },
-      },
-    },
   },
+
+  // Subscription: {
+  //   // newPost: {
+  //   //   subscribe: (parent, args) => args.pubsub.asyncIterator("NEW POST"),
+  //   // },
+  //   newPost: {
+  //     subscribe: async (parent, args, { pubsub }) => {
+  //       return pubsub.asyncIterator("NEW_POST");
+  //     },
+  //   },
+  // },
 };

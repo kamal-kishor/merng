@@ -10,6 +10,8 @@ export const typeDefs = gql`
     createdAt: String!
     comments: [Comment]!
     likes: [Like]!
+    likeCount: Int!
+    commentCount: Int!
   }
 
   type Comment {
@@ -80,9 +82,9 @@ export const typeDefs = gql`
     likePost(input: likePostInput): Post!
   }
 
-  type Subscription {
-    newPost: Post!
-  }
+  # type Subscription {
+  #   newPost: Post!
+  # }
 `;
 
 // export { typeDefs };

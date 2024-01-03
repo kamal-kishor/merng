@@ -38,8 +38,9 @@ export const post_resolver = {
         const user = check_auth(context);
         const { body } = args.input;
 
-        console.log("Post Created by the User: ", user);
-
+        if ({ body }.trim === "") {
+          throw new Error("Post Body Must not be Empty");
+        }
         const newPost = new Post({
           _id: new mongoose.Types.ObjectId(),
           body,
@@ -49,8 +50,10 @@ export const post_resolver = {
 
         const res = await newPost.save();
 
-        // return post;
-        return { ...res._doc, id: res._id };
+        // context.pubsub.publish("NEW_POST", { newPost: res });
+
+        return res;
+        // return { ...res._doc, id: res._id };
       } catch (error) {
         console.error("Error on the CreatePost Resolver: ", error);
         throw new Error("Error on the CreatePost Resolver: " + error.message);

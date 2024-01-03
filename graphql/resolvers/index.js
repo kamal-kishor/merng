@@ -4,6 +4,10 @@ import { comment_resolver } from "./comment_resolver.js";
 import { like_resolver } from "./like_resolver.js";
 
 export const resolvers = {
+  Post: {
+    likeCount: (parent) => parent.likes.length,
+    commentCount: (parent) => parent.comments.length,
+  },
   Query: {
     ...post_resolver.Query,
   },
@@ -13,7 +17,7 @@ export const resolvers = {
     ...comment_resolver.Mutation,
     ...like_resolver.Mutation,
   },
-  Subscription: {
-    ...like_resolver.Subscription,
-  },
+  // Subscription: {
+  //   ...like_resolver.Subscription,
+  // },
 };
