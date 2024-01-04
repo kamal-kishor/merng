@@ -15,10 +15,9 @@ const client = new ApolloClient({
 });
 
 const ApolloProviderWrapper = () => (
-  // Wrap the content in a functional component
   <ApolloHooksProvider client={client}>
     <App />
   </ApolloHooksProvider>
 );
 
-export default ApolloProviderWrapper; // Export the functional component
+export default ApolloProviderWrapper;
